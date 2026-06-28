@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cmb0drwhcmg56"]
+
+[ext_resource type="Script" uid="uid://dyn8ehl1kfqc4" path="res://pistol.gd" id="1_ly3mx"]
+[ext_resource type="Script" uid="uid://bxyya3qn57w5i" path="res://Scripts/StateMachine/StateMachine.gd" id="2_v4s1r"]
+[ext_resource type="Script" uid="uid://bl8ajy2phirou" path="res://Scenes/Weapons/PistolShoot.gd" id="3_131bw"]
+
+[node name="Pistol" type="Node3D" unique_id=1892021339]
+script = ExtResource("1_ly3mx")
+rateOfFire = 0.25
+maxAmmoMagazine = 10
+currentAmmo = 10
+reserveAmmo = 50
+damage = 15.0
+
+[node name="StateMachine" type="Node" parent="." unique_id=2084305979 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_v4s1r")
+initial_state = NodePath("Shoot")
+
+[node name="Shoot" type="Node" parent="StateMachine" unique_id=1306109238]
+script = ExtResource("3_131bw")

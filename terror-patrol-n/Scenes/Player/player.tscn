@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://han2tfkl5pqo" path="res://player.gd" id="1_aoxlc"]
 [ext_resource type="Script" uid="uid://bxyya3qn57w5i" path="res://Scripts/StateMachine/StateMachine.gd" id="2_pie2b"]
+[ext_resource type="Script" uid="uid://ctaqkd6b02qp4" path="res://Scenes/Player/gun_controller.gd" id="2_q1ymb"]
 [ext_resource type="Script" uid="uid://da8otap34qun1" path="res://Scripts/Player/playermove.gd" id="3_sfp35"]
+[ext_resource type="PackedScene" uid="uid://cmb0drwhcmg56" path="res://Scenes/Weapons/pistol.tscn" id="3_sldgk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qlfej"]
 
@@ -14,6 +16,10 @@ script = ExtResource("1_aoxlc")
 [node name="Head" type="Node3D" parent="." unique_id=1706944783]
 
 [node name="Camera" type="Camera3D" parent="Head" unique_id=1617350393]
+
+[node name="GunController" type="Node3D" parent="Head/Camera" unique_id=918237437]
+script = ExtResource("2_q1ymb")
+startingWeapon = ExtResource("3_sldgk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2052104163]
 shape = SubResource("CapsuleShape3D_qlfej")

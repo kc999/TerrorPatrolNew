@@ -6,11 +6,15 @@
 
 [node name="Pistol" type="Node3D" unique_id=1892021339]
 script = ExtResource("1_ly3mx")
-rateOfFire = 0.25
+rateOfFire = 0.1
 maxAmmoMagazine = 10
 currentAmmo = 10
 reserveAmmo = 50
 damage = 15.0
+mouseRecoilVert = 0.5
+mouseRecoilHorz = 0.25
+springRecoilHorz = 4.0
+springRecoilVert = 1.5
 
 [node name="StateMachine" type="Node" parent="." unique_id=2084305979 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_v4s1r")

@@ -8,7 +8,8 @@ var jumpHeight: float = 6
 var gravity: float = 12
 @export var mouseSensitivity: float = 0.005
 @onready var head: Node3D = $Head
-@onready var camera: Camera3D = $Head/Camera
+@onready var camera: Camera3D = $Head/RecoilHandler/Camera
+@onready var recoilHandler: Node3D = $Head/RecoilHandler
 
 func mouse_input(_input:InputEvent):
 	#Check if mouse is captured before rotating player
@@ -37,3 +38,11 @@ func move_player(delta):
 		velocity.x += moveDirection.x * moveSpeed * delta
 		velocity.z += moveDirection.z * moveSpeed * delta
 	move_and_slide()
+
+func apply_recoil(recoilVert: float, recoilHorz: float, springRecoilVert:float,springRecoilHorz:float) -> void:
+	#Apply recoil to player's camera
+	rotate_y(deg_to_rad(recoilHorz))
+	head.rotation.x += deg_to_rad(recoilVert)
+	head.rotation.x = clamp(head.rotation.x,deg_to_rad(-89),deg_to_rad(89))
+	#Also Apply recoil to the recoil spring
+	recoilHandler.add_recoil(springRecoilVert,springRecoilHorz)

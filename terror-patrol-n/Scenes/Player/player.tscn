@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bm5hr40nigpyp"]
 
 [ext_resource type="Script" uid="uid://han2tfkl5pqo" path="res://player.gd" id="1_aoxlc"]
+[ext_resource type="Script" uid="uid://d4wlhehkra1v" path="res://Scenes/Player/RecoilHandler.gd" id="2_dd0ac"]
 [ext_resource type="Script" uid="uid://bxyya3qn57w5i" path="res://Scripts/StateMachine/StateMachine.gd" id="2_pie2b"]
 [ext_resource type="Script" uid="uid://ctaqkd6b02qp4" path="res://Scenes/Player/gun_controller.gd" id="2_q1ymb"]
 [ext_resource type="Script" uid="uid://da8otap34qun1" path="res://Scripts/Player/playermove.gd" id="3_sfp35"]
@@ -10,14 +11,17 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_pie2b"]
 
-[node name="Player" type="CharacterBody3D" unique_id=632405292]
+[node name="Player" type="CharacterBody3D" unique_id=632405292 groups=["Player"]]
 script = ExtResource("1_aoxlc")
 
 [node name="Head" type="Node3D" parent="." unique_id=1706944783]
 
-[node name="Camera" type="Camera3D" parent="Head" unique_id=1617350393]
+[node name="RecoilHandler" type="Node3D" parent="Head" unique_id=1098753292]
+script = ExtResource("2_dd0ac")
 
-[node name="GunController" type="Node3D" parent="Head/Camera" unique_id=918237437]
+[node name="Camera" type="Camera3D" parent="Head/RecoilHandler" unique_id=1617350393]
+
+[node name="GunController" type="Node3D" parent="Head/RecoilHandler/Camera" unique_id=918237437]
 script = ExtResource("2_q1ymb")
 startingWeapon = ExtResource("3_sldgk")
 

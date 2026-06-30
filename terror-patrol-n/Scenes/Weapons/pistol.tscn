@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://cmb0drwhcmg56"]
 
 [ext_resource type="Script" uid="uid://dyn8ehl1kfqc4" path="res://pistol.gd" id="1_ly3mx"]
+[ext_resource type="AudioStream" uid="uid://bqsoco04pbbxd" path="res://Assets/Sounds/Weapons/Pistol/pistol_base.ogg" id="2_c8jmy"]
 [ext_resource type="Script" uid="uid://bxyya3qn57w5i" path="res://Scripts/StateMachine/StateMachine.gd" id="2_v4s1r"]
 [ext_resource type="Script" uid="uid://bl8ajy2phirou" path="res://Scenes/Weapons/PistolShoot.gd" id="3_131bw"]
+[ext_resource type="AudioStream" uid="uid://bfkusy7xnm7kx" path="res://Assets/Sounds/Weapons/Pistol/pistol_indoor_tail.ogg" id="3_p25qq"]
+[ext_resource type="AudioStream" uid="uid://bsosmbkaybexn" path="res://Assets/Sounds/Weapons/Pistol/pistol_outdoor_tail.ogg" id="4_1o7ip"]
 
 [node name="Pistol" type="Node3D" unique_id=1892021339]
 script = ExtResource("1_ly3mx")
-rateOfFire = 0.1
+rateOfFire = 0.15
 maxAmmoMagazine = 10
 currentAmmo = 10
 reserveAmmo = 50
@@ -15,6 +18,9 @@ mouseRecoilVert = 0.5
 mouseRecoilHorz = 0.25
 springRecoilHorz = 4.0
 springRecoilVert = 1.5
+baseGunSound = ExtResource("2_c8jmy")
+tailIndoorSound = ExtResource("3_p25qq")
+tailOutdoorSound = ExtResource("4_1o7ip")
 
 [node name="StateMachine" type="Node" parent="." unique_id=2084305979 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_v4s1r")
